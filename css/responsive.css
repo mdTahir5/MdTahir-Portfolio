@@ -1,0 +1,225 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN & ADAPTIVE BREAKPOINTS
+   Mobile-first polish, tablet layouts, touch screen adaptations, & print mode
+   ========================================================================== */
+
+/* Tablet & Smaller Desktops (Max 1024px) */
+@media (max-width: 1024px) {
+  .nav-links-list {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .timeline-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .resume-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .telemetry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .telemetry-item:nth-child(2)::after {
+    display: none;
+  }
+}
+
+/* Mobile Devices (Max 768px) */
+@media (max-width: 768px) {
+  section {
+    padding: 4.5rem 0;
+  }
+
+  .hero-section {
+    padding-top: 6.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .display-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-card-preview {
+    padding: 1.5rem;
+  }
+
+  .contact-form-glass {
+    padding: 1.5rem;
+  }
+
+  .cmd-palette-btn span.kbd-badge {
+    display: none;
+  }
+
+  /* Disable Custom Cursor on Touch Devices */
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+  
+  a, button, input, select, textarea {
+    cursor: auto !important;
+  }
+}
+
+/* Small Phones (Max 480px) */
+@media (max-width: 480px) {
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetry-item::after {
+    display: none !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .modal-container {
+    padding: 1.5rem 1.15rem;
+  }
+}
+
+/* Mobile Drawer Overlay & Menu */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.mobile-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.mobile-drawer-link {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+  display: block;
+  padding: 0.5rem;
+}
+
+.mobile-drawer-link:hover, .mobile-drawer-link.active {
+  color: var(--accent-primary);
+}
+
+.mobile-drawer-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Print Styles for Resume & Portfolios */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .cinematic-bg,
+  .hero-canvas-container,
+  .navbar-wrapper,
+  .custom-cursor-dot,
+  .custom-cursor-ring,
+  .scroll-progress-bar,
+  .contact-section,
+  .cmd-dialog-overlay,
+  .toast-container {
+    display: none !important;
+  }
+
+  .resume-card-preview {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #111827 !important;
+    padding: 0 !important;
+  }
+
+  .text-highlight, h1, h2, h3, h4, .resume-name {
+    color: #000000 !important;
+  }
+
+  .text-muted, .text-faint {
+    color: #4b5563 !important;
+  }
+
+  .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
+  }
+}
